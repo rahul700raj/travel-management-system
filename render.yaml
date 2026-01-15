@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: travel-management-system
+    env: java
+    buildCommand: mvn clean package -DskipTests
+    startCommand: java -jar target/travel-management-system-1.0.0.jar
+    envVars:
+      - key: SPRING_DATASOURCE_URL
+        value: jdbc:mysql://YOUR_DB_HOST:3306/travel_management
+      - key: SPRING_DATASOURCE_USERNAME
+        value: YOUR_USERNAME
+      - key: SPRING_DATASOURCE_PASSWORD
+        value: YOUR_PASSWORD
+      - key: SERVER_PORT
+        value: 8080
+      - key: SPRING_JPA_HIBERNATE_DDL_AUTO
+        value: update
